@@ -1,0 +1,29 @@
+ 
+on: 
+  push: 
+    branches: [ main, master ] 
+  pull_request: 
+    branches: [ main, master ] 
+ 
+jobs: 
+  security-pipeline: 
+    runs-on: ubuntu-latest 
+    steps: 
+    - name: Checkout Repository 
+      uses: actions/checkout@v3 
+    - name: Set up Python 
+      uses: actions/setup-python@v4 
+      with: 
+        python-version: '3.10' 
+        python -m pip install --upgrade pip 
+        pip install pip-audit checkov bandit 
+        pip install -r app/requirements.txt 
+    - name: Run Bandit SAST Scan 
+        echo "[*] Running Bandit SAST scan on source code..." 
+    - name: Run Dependency Scanning (pip-audit) 
+        echo "[*] Running pip-audit on dependencies..." 
+    - name: Run Infrastructure-as-Code Scan (Checkov) 
+        echo "[*] Running Checkov on Terraform files..." 
+    - name: Run Automated Policy Enforcement Gate 
+        echo "[*] Executing Policy Gate..." 
+        python security_policy/gatekeeper.py 
