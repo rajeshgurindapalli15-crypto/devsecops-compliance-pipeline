@@ -58,6 +58,41 @@ graph TD
 └── security_policy/
     └── gatekeeper.py               
 ```
+
+## 🚀 Pipeline Workflow Execution Details
+
+When a developer creates a Pull Request or pushes code to the `main` branch, the `.github/workflows/security-pipeline.yml` pipeline executes the following sequential stages:
+
+1. **Environment Setup**: Provisions a clean Ubuntu runner with Python 3.10 and installs security dependencies.
+2. **Code Security Analysis (SAST)**: Runs `bandit -r app/` to catch common Python security anti-patterns and vulnerabilities.
+3. **Dependency Scanning (SCA)**: Runs `pip-audit -r app/requirements.txt` to verify no open CVEs exist in external packages.
+4. **Infrastructure Security Scan (IaC)**: Runs `checkov -f infrastructure/main.tf` to evaluate Terraform cloud resource compliance.
+5. **Policy Gate Evaluation**: Executes `security_policy/gatekeeper.py` to aggregate scan reports and fail the pipeline build if high/critical violations are found.
+
+---
+
+## 🛠️ Local Execution & Testing
+
+To execute compliance checks locally prior to pushing code:
+
+```bash
+# Clone the repository
+git clone [https://github.com/rajeshgurindapalli15-crypto/devsecops-compliance-pipeline.git](https://github.com/rajeshgurindapalli15-crypto/devsecops-compliance-pipeline.git)
+cd devsecops-compliance-pipeline
+
+# Run SAST Check
+bandit -r app/
+
+# Run SCA Check
+pip-audit -r app/requirements.txt
+
+# Run IaC Check
+checkov -f infrastructure/main.tf
+
+# Evaluate Custom Policy Gate
+python security_policy/gatekeeper.py
+```
+
 ## 📜 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
