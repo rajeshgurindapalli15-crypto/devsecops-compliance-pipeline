@@ -78,13 +78,9 @@ To execute compliance checks locally prior to pushing code:
 ```bash
 git clone [https://github.com/rajeshgurindapalli15-crypto/devsecops-compliance-pipeline.git](https://github.com/rajeshgurindapalli15-crypto/devsecops-compliance-pipeline.git)
 cd devsecops-compliance-pipeline
-
 bandit -r app/
-
 pip-audit -r app/requirements.txt
-
 checkov -f infrastructure/main.tf
-
 python security_policy/gatekeeper.py
 ```
 
