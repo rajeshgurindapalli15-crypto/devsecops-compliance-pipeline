@@ -61,13 +61,27 @@ graph TD
 
 ## 🚀 Pipeline Workflow Execution Details
 
-When a developer creates a Pull Request or pushes code to the `main` branch, the `.github/workflows/security-pipeline.yml` pipeline executes the following sequential stages:
+When a developer creates a Pull Request or pushes code to the `main` branch, the `.github/workflows/security-pipeline.yml` workflow executes through the following structured stages:
 
-1. **Environment Setup**: Provisions a clean Ubuntu runner with Python 3.10 and installs security dependencies.
-2. **Code Security Analysis (SAST)**: Runs `bandit -r app/` to catch common Python security anti-patterns and vulnerabilities.
-3. **Dependency Scanning (SCA)**: Runs `pip-audit -r app/requirements.txt` to verify no open CVEs exist in external packages.
-4. **Infrastructure Security Scan (IaC)**: Runs `checkov -f infrastructure/main.tf` to evaluate Terraform cloud resource compliance.
-5. **Policy Gate Evaluation**: Executes `security_policy/gatekeeper.py` to aggregate scan reports and fail the pipeline build if high/critical violations are found.
+1. **Environment Setup**
+   * Provisions a clean Ubuntu runner with Python 3.10.
+   * Installs pipeline security tools and dependencies.
+
+2. **Code Security Analysis (SAST)**
+   * **Command:** `bandit -r app/`
+   * Scans Python source code to detect security anti-patterns and vulnerabilities.
+
+3. **Dependency Scanning (SCA)**
+   * **Command:** `pip-audit -r app/requirements.txt`
+   * Checks third-party libraries against known CVE databases (OSV/NVD).
+
+4. **Infrastructure Security Scan (IaC)**
+   * **Command:** `checkov -f infrastructure/main.tf`
+   * Evaluates Terraform cloud configuration files for security misconfigurations.
+
+5. **Policy Gate Evaluation**
+   * **Command:** `python security_policy/gatekeeper.py`
+   * Aggregates scan results and enforces hard gate policies (`exit code 1` on High/Critical findings).
 
 ---
 
