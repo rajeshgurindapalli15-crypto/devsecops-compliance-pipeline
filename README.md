@@ -36,3 +36,6 @@ An enterprise-grade DevSecOps CI/CD security pipeline built with GitHub Actions.
 │   └── main.tf                     
 └── security_policy/
     └── gatekeeper.py               
+
+## 📜 License
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
