@@ -1,4 +1,4 @@
-# DevSecOps Automated Compliance & Policy Enforcement Pipeline
+# 🏛️DevSecOps Automated Compliance & Policy Enforcement Pipeline
 ![Build Status](https://github.com/rajeshgurindapalli15-crypto/devsecops-compliance-pipeline/actions/workflows/security-pipeline.yml/badge.svg)
 ![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Security Guardrails](https://img.shields.io/badge/security-Bandit%20%7C%20pip--audit%20%7C%20Checkov-green)
