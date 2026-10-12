@@ -76,20 +76,15 @@ When a developer creates a Pull Request or pushes code to the `main` branch, the
 To execute compliance checks locally prior to pushing code:
 
 ```bash
-# Clone the repository
 git clone [https://github.com/rajeshgurindapalli15-crypto/devsecops-compliance-pipeline.git](https://github.com/rajeshgurindapalli15-crypto/devsecops-compliance-pipeline.git)
 cd devsecops-compliance-pipeline
 
-# Run SAST Check
 bandit -r app/
 
-# Run SCA Check
 pip-audit -r app/requirements.txt
 
-# Run IaC Check
 checkov -f infrastructure/main.tf
 
-# Evaluate Custom Policy Gate
 python security_policy/gatekeeper.py
 ```
 
