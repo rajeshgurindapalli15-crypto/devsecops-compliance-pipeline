@@ -41,7 +41,6 @@ graph TD
 | **SCA** | [pip-audit](https://github.com/pypa/pip-audit) | Scans dependency manifests (`requirements.txt`) against known vulnerability databases (OSV/NVD). |
 | **IaC Security** | [Checkov](https://www.checkov.io/) | Evaluates Terraform files (`main.tf`) for compliance and cloud security misconfigurations. |
 | **Policy Engine** | `gatekeeper.py` | Custom Python policy gate that inspects project state and blocks non-compliant pipeline deployments. |
-
 ---
 
 ## 📂 Repository Structure
