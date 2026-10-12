@@ -30,7 +30,7 @@ graph TD
     F --> G{Policy Check Passed?}
     
     G -->|Yes / Zero Violations| I[✅ Pipeline Succeeds & Deployment Allowed]
-    G -->|No / High or Critical CVEs Found| H[❌ gatekeeper.py throws exit code 1<br/>Pipeline Fails & Blocks Merge]
+    G -->|No / High or Critical CVEs Found | H[❌ gatekeeper.py throws exit code 1<br/>Pipeline Fails & Blocks Merge]
 ```
 
 ## 🔐 Security Tooling Stack
