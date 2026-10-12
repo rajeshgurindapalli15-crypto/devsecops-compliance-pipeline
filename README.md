@@ -29,8 +29,8 @@ graph TD
     
     F --> G{Policy Check Passed?}
     
-    G -->|Yes| I[✅ Zero Violations<br>Pipeline Succeeds & Deployment Allowed]
-    G -->|No| H[❌ High/Critical Violations Found - gatekeeper.py exits with code 1<br>Pipeline Fails & Blocks Merge]
+    G -->|Yes| I["✅ Pass: Zero Violations<br/>Pipeline Succeeds & Merge Allowed"]
+    G -->|No| H["❌ Fail: High/Critical CVEs Found<br/>gatekeeper.py exits code 1 (Blocks Merge)"]
 ```
 
 ## 🔐 Security Tooling Stack
