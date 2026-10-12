@@ -47,14 +47,16 @@ graph TD
 ```text
 ├── .github/
 │   └── workflows/
-│       └── security-pipeline.yml  
+│       └── security-pipeline.yml
 ├── app/
-│   ├── main.py                     
-│   └── requirements.txt           
+│   ├── main.py
+│   └── requirements.txt
 ├── infrastructure/
-│   └── main.tf                     
-└── security_policy/
-    └── gatekeeper.py               
+│   └── main.tf
+├── security_policy/
+│   └── gatekeeper.py
+├── LICENSE
+└── README.md             
 ```
 
 ## 🚀 Pipeline Workflow Execution Details
