@@ -11,6 +11,28 @@ An enterprise-grade DevSecOps CI/CD security pipeline built with GitHub Actions.
 
 ## 🏗️ Architecture & Workflow Overview
 
+The pipeline automatically triggers on code commit or pull request, executing sequential security scans across source code, third-party dependencies, and infrastructure configurations. Findings are passed to an automated policy gate (`gatekeeper.py`) that evaluates risk severity and determines whether to permit or block deployment.
+
+```mermaid
+graph TD
+    A[Developer Commit / PR] -->|Triggers CI/CD| B[GitHub Actions Runner]
+    
+    subgraph Parallel Security Scans
+        B --> C[Bandit: SAST Scan]
+        B --> D[pip-audit: SCA Scan]
+        B --> E[Checkov: IaC Scan]
+    end
+    
+    C --> F[security_policy/gatekeeper.py]
+    D --> F
+    E --> F
+    
+    F --> G{Policy Check Passed?}
+    
+    G -->|High / Critical CVEs Found| H[❌ Pipeline Fails & Blocks Merge]
+    G -->|Zero Violations| I[✅ Deployment Allowed]
+```
+
 ## 🔐 Security Tooling Stack
 
 | Domain | Tool | Description |
