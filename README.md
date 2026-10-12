@@ -25,7 +25,6 @@ An enterprise-grade DevSecOps CI/CD security pipeline built with GitHub Actions.
 ## 📂 Repository Structure
 
 ```text
-.
 ├── .github/
 │   └── workflows/
 │       └── security-pipeline.yml  
