@@ -28,9 +28,11 @@ graph TD
     E --> F
     
     F --> G{Policy Check Passed?}
-    G -->|Yes| I[✅ Zero Violations<br/>Pipeline Succeeds & Merge Allowed]
-    G -->|No| H[❌ High/Critical Violations Found<br/>gatekeeper.py exits with code 1<br/>Pipeline Fails & Blocks Merge]
+    
+    G -->|Yes| I[✅ Zero Violations<br>Pipeline Succeeds & Deployment Allowed]
+    G -->|No| H[❌ High/Critical Violations Found - gatekeeper.py exits with code 1<br>Pipeline Fails & Blocks Merge]
 ```
+
 ## 🔐 Security Tooling Stack
 
 | Domain | Tool | Description |
