@@ -100,7 +100,7 @@ pip-audit -r app/requirements.txt
 checkov -f infrastructure/main.tf
 python security_policy/gatekeeper.py
 ```
-## 🚀 CI/CD Security Pipeline
+##  CI/CD Security Pipeline
 
 The automated DevSecOps pipeline performs security checks on every push to `main`:
 
