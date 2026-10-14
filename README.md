@@ -98,6 +98,19 @@ pip-audit -r app/requirements.txt
 checkov -f infrastructure/main.tf
 python security_policy/gatekeeper.py
 ```
+## 🚀 CI/CD Security Pipeline
+
+![DevSecOps Pipeline](https://github.com/rajeshgurindapalli15-crypto/devsecops-compliance-pipeline/actions/workflows/devsecops.yml/badge.svg)
+
+The automated DevSecOps pipeline performs security checks on every push to `main`:
+
+![Pipeline Execution](assets/pipeline-execution.png)
+
+### Automated Pipeline Steps:
+- **Static Application Security Testing (SAST):** Automated Python code analysis.
+- **Dependency Vulnerability Scanning:** Scans for known vulnerabilities in requirements.
+- **Infrastructure-as-Code (IaC) Audit:** Validates deployment configuration security.
+- **Policy Enforcement:** Fails build if critical vulnerabilities are detected.
 
 ## 📜 License
 
