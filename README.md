@@ -100,8 +100,6 @@ python security_policy/gatekeeper.py
 ```
 ## 🚀 CI/CD Security Pipeline
 
-![DevSecOps Pipeline](https://github.com/rajeshgurindapalli15-crypto/devsecops-compliance-pipeline/actions/workflows/security-pipeline.yml/badge.svg)
-
 The automated DevSecOps pipeline performs security checks on every push to `main`:
 
 ![Pipeline Execution](assets/pipeline-execution.png)
