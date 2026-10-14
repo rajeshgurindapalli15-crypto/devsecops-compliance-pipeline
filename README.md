@@ -104,12 +104,6 @@ The automated DevSecOps pipeline performs security checks on every push to `main
 
 ![Pipeline Execution](assets/pipeline-execution.png)
 
-### Automated Pipeline Steps:
-- **Static Application Security Testing (SAST):** Automated Python code analysis.
-- **Dependency Vulnerability Scanning:** Scans for known vulnerabilities in requirements.
-- **Infrastructure-as-Code (IaC) Audit:** Validates deployment configuration security.
-- **Policy Enforcement:** Fails build if critical vulnerabilities are detected.
-
 ## 📜 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
