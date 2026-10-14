@@ -50,7 +50,7 @@ graph TD
 │   └── workflows/
 │       └── security-pipeline.yml
 ├── app/
-│   ├── main.py
+│   ├── app.py
 │   └── requirements.txt
 ├── infrastructure/
 │   └── main.tf
