@@ -52,6 +52,8 @@ graph TD
 ├── app/
 │   ├── app.py
 │   └── requirements.txt
+├── assets/
+│   └── pipeline-execution.png
 ├── infrastructure/
 │   └── main.tf
 ├── security_policy/
